@@ -29,17 +29,17 @@ def structural_sim(img1, img2):
 img00 = cv2.imread('images/monkey_distorted.jpg', 0)
 img01 = cv2.imread('images/monkey_rotated.jpg', 0)
 
-img1 = cv2.imread('images/senna1.jpg', 0)
+img1 = cv2.imread('images/3.jpg', 0)
 img2 = cv2.imread('images/BSE_noisy.jpg', 0)
-img3 = cv2.imread('images/senna2.jpg', 0)
+img3 = cv2.imread('images/2.jpg', 0)
 img4 = cv2.imread('images/different_img.jpg', 0)
 
 orb_similarity = orb_sim(img1, img3)
 
-print("Similarity using ORB is: ", orb_similarity)
+print("A similaridade usando ORB é: ", orb_similarity)
 
 img5 = resize(img3, (img1.shape[0], img1.shape[1]),
               anti_aliasing=True, preserve_range=True)
 
 ssim = structural_sim(img1, img5)
-print("Similarity using SSIM is: ", ssim)
+print("A similaridade usanso SSIM é: ", ssim)

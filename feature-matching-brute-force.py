@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
-img1 = cv2.imread("images/1.jpg", cv2.IMREAD_GRAYSCALE)
-img2 = cv2.imread("images/senna2.jpg", cv2.IMREAD_GRAYSCALE)
+img1 = cv2.imread("images/imgMouseBase.png")
+img2 = cv2.imread("images/1.jpg")
 
 # ORB Detector
 orb = cv2.ORB_create()
@@ -14,10 +15,14 @@ bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
 matches = bf.match(des1, des2)
 matches = sorted(matches, key = lambda x:x.distance)
 
+print(len(matches))
+
 matching_result = cv2.drawMatches(img1, kp1, img2, kp2, matches[:50], None, flags=2)
 
-cv2.imshow("Img1", img1)
-cv2.imshow("Img2", img2)
-cv2.imshow("Matching result", matching_result)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+plt.imshow(matching_result)
+plt.show()
+# cv2.imshow("Img1", img1)
+# cv2.imshow("Img2", img2)
+# cv2.imshow("Matching result", matching_result)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()

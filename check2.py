@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-img1 = cv2.imread('images/2.jpg')  # queryImage
-img2 = cv2.imread('images/senna1.jpg')  # trainImage
+img1 = cv2.imread('images/1.jpg')  # queryImage
+img2 = cv2.imread('images/5.jpg')  # trainImage
 
 # Initiate SIFT detector
 orb = cv2.ORB_create()
@@ -31,7 +31,7 @@ good_points = []
 
 # ratio test as per Lowe's paper
 for i, (m, n) in enumerate(matches):
-    if m.distance < 0.98*n.distance:
+    if m.distance < 1.5*n.distance:
         matchesMask[i] = [1, 0]
         good_points.append(m)
 

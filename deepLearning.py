@@ -31,8 +31,8 @@ def extract(file):
     return flattended_feature
 
 img1 = extract('images/2.jpg')
-img2 = extract('images/3.jpg')
-img3 = extract('images/senna1.jpg')
+img2 = extract('images/senna1.jpg')
+img3 = extract('images/matheus.jpg')
 
 metric = 'cosine'
 
